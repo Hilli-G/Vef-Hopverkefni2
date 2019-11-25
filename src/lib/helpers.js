@@ -3,3 +3,12 @@ export function empty(element) {
     element.removeChild(element.firstChild);
   }
 }
+export function el(type, className) {
+  const element = document.createElement(type);
+
+  if (className) {
+    element.classList.add(className);
+  }
+
+  return element;
+}
