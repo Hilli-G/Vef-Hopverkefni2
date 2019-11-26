@@ -1,0 +1,16 @@
+$max-width: 1200px;
+$gutter: 20px;
+
+ul{
+  display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(6, 1fr);
+grid-column-gap: 20px;
+grid-row-gap: 20px;
+}
+li{
+  display:grid;
+  grid-template-columns:  subgrid;
+  border: solid;
+  background: #ccc;
+}
