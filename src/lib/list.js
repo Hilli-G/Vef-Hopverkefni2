@@ -1,4 +1,4 @@
-import { empty } from './helpers';
+import { empty } from './helpers.js';
 
 export default class List {
   constructor() {

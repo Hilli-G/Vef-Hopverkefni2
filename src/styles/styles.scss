@@ -1,4 +1,4 @@
-@import "config";
+@import "config.scss";
 $font-main: 'Lora',serif;
 * {
   padding: 0;
@@ -18,10 +18,13 @@ html { /* stylelint-disable-line */
 
   font-family: $font-main;
   font-size: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 img { /* stylelint-disable-line */
   max-width: 100%;
+  z-index: -1;
 }
 
 // TODO import

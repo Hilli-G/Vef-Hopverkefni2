@@ -3,11 +3,18 @@ export function empty(element) {
     element.removeChild(element.firstChild);
   }
 }
-export function el(type, className) {
-  const element = document.createElement(type);
 
-  if (className) {
-    element.classList.add(className);
+export function el(name, ...children) {
+  const element = document.createElement(name);
+
+  if (Array.isArray(children)) {
+    children.forEach((child) => {
+      if (typeof child === 'string') {
+        element.appendChild(document.createTextNode(child));
+      } else if (child) {
+        element.appendChild(child);
+      }
+    });
   }
 
   return element;
