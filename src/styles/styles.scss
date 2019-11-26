@@ -10,8 +10,16 @@ $font-main: 'Lora',serif;
 *::after {
   box-sizing: inherit;
 }
+.header{
+  background-image: url('../../img/header.jpg');
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 100px;
+  background-position: center;
+  height: 200px;
+}
 
-html { /* stylelint-disable-line */
+.list { /* stylelint-disable-line */
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
@@ -26,5 +34,6 @@ img { /* stylelint-disable-line */
   max-width: 100%;
   z-index: -1;
 }
+
 
 // TODO import

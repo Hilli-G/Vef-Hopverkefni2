@@ -43,3 +43,9 @@ function displayJSONData(data) {
     console.log(item);
   }
 }
+
+
+
+
+// SVÆÐI FYRIR FYRIRLESTUR.HTML
+
