@@ -10,16 +10,29 @@ $font-main: 'Lora',serif;
 *::after {
   box-sizing: inherit;
 }
+h1, h2, h3, h4, h5, h6 {font-family:monospace;}
 .header{
-  background-image: url('../../img/header.jpg');
-  background-repeat: no-repeat;
+  background: url('../../img/header.jpg') no-repeat center;
+  position: relative;
   text-align: center;
-  padding-top: 100px;
-  background-position: center;
-  height: 200px;
+  width: 100%;
+  height: 40vh;
 }
-
+.layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.6);
+  z-index: 0;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .list { /* stylelint-disable-line */
+
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
@@ -27,7 +40,31 @@ $font-main: 'Lora',serif;
   font-family: $font-main;
   font-size: 16px;
   max-width: 1200px;
+  padding-top: 40px;
   margin: 0 auto;
+}
+#buttons{
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+button{
+  font-family: $font-main;
+  box-shadow: 0px 1px 0px 0px #cc9694;
+	background-color:#ccc;
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+  color: #000;
+  font-size: 16px;
+	font-weight:bold;
+  padding:12px 16px;
+  margin: 0 0 0 20px;
+}
+.active{
+  background-color: #2d2;
 }
 
 img { /* stylelint-disable-line */
