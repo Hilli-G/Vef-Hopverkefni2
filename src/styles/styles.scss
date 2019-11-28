@@ -71,6 +71,28 @@ img { /* stylelint-disable-line */
   max-width: 100%;
   z-index: -1;
 }
+//MEDIA
 
+//MEDIA
+@media only screen and (min-width: 0px) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    transition: all 200ms ease-in-out;
+   }
+}
+@media only screen and (min-width: 500px) {
+  .list {
+    display: grid;
+    padding: 20px;
+   } 
+  }
+  @media only screen and (min-width: 1200px) {
+    .list {
+      padding: 0; }
+    .header{
+      width: 100%;
+    } }
 
 // TODO import
+
