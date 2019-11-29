@@ -1,3 +1,21 @@
+# Hópverkefni 2 eftir Hilmar og Elas
+
+# Javascript
+Megnið af javascript kóðanum er í `index.js`. Við náðum ekki að setja upp babel þannig að það er notuð `index.js` sem er i src.
+
+í þeirri skrá er functionið `fetchJSONFile` sem sér um að taka inn gögnin úr json og parse-a þau.<br>Functionið `displayJSONData` tekur inn optional breytuna `type` sem segir til hvort týpan sé css,html eða javascript og býr síðan til list element sem heldur utan um gögnin og setur þau á síðuna, einnig býr það til takka fyrir hvert `category` í json gögnunum.<br> Þegar síðan loadast kallast er tæmt `listContainer` sem á að halda utan um json gögnin og fyllir það með gögnum með `displayJSONData`.
+
+Það er event handler fyrir takkana til að sía gögnin eftir `category` sem tæmir `listContainer` og fyllir það af gögnum fyrir hvern takka sem er með klasan `active`
+
+Undir `src/lib` möppunni er `helpers.js` sem geymir fallið `empty` og `el`.<br>
+`empty` er notað til að tæma allt í því element sem er kallað á.<br>
+`el` er notað til þess að búa til elements og er aðallega notað í `displayJSONData` fallinu.
+
+# CSS
+Css kóðinn er gerður í `config.scss` og `styles.css` undir `src/styles` sem eru síðan þýddar í `styles.css` undir `dist` möppunni.<br>
+`styles.css` er notað til að stýla síðuna. Sett er upp `list` með `grid` sem býr til 3 `columns` í upp að 6 `rows` sem geymir divs fyrir json gögn.
+
+-----------------------------------------
 # Hópverkefni 2
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
