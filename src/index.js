@@ -16,58 +16,9 @@ function fetchJSONFile(path, callback) {
   httpRequest.send();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const page = document.querySelector('body');
-  const isLecturePage = page.classList.contains('lecture-page');
-  const buttonContainer = document.getElementById('buttons');
-  const mainContainer = document.getElementById('content');
-  const listContainer = document.querySelector('ul');
-  empty(listContainer);
-  displayJSONData();
-  if (isLecturePage) {
-
-  } else {
-    const list = new List();
-    list.load();
-  }
-});
-document.addEventListener('click', (e) => {
-  const listContainer = document.querySelector('ul');
-  if (e.target && e.target.id === 'css') {
-    empty(listContainer);
-    e.target.classList.toggle('active');
-    if (e.target.classList.contains('active')) {
-      displayJSONData('css');
-    } else {
-      displayJSONData();
-    }
-  }
-  if (e.target && e.target.id === 'html') {
-    empty(listContainer);
-    e.target.classList.toggle('active');
-    if (e.target.classList.contains('active')) {
-      displayJSONData('css');
-    } else {
-      displayJSONData();
-    }
-  }
-  if (e.target && e.target.id === 'javascript') {
-    empty(listContainer);
-    e.target.classList.toggle('active');
-    if (e.target.classList.contains('active')) {
-      displayJSONData('css');
-    } else {
-      displayJSONData();
-    }
-  }
-});
-
-
 function displayJSONData(type) {
   const page = document.querySelector('body');
-  const isLecturePage = page.classList.contains('lecture-page');
   const buttonContainer = document.getElementById('buttons');
-  const mainContainer = document.getElementById('content');
   const listContainer = document.querySelector('ul');
   fetchJSONFile('lectures.json', (data) => {
     Object.keys(data.lectures).forEach((key) => {
@@ -92,6 +43,36 @@ function displayJSONData(type) {
     });
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const listContainer = document.querySelector('ul');
+  empty(listContainer);
+  displayJSONData();
+});
+
+document.addEventListener('click', (e) => {
+  const listContainer = document.querySelector('ul');
+  const activeFilters = document.getElementsByClassName('active');
+  if (e.target && e.target.id === 'css') {
+    empty(listContainer);
+    e.target.classList.toggle('active');
+  }
+  if (e.target && e.target.id === 'html') {
+    empty(listContainer);
+    e.target.classList.toggle('active');
+  }
+  if (e.target && e.target.id === 'javascript') {
+    empty(listContainer);
+    e.target.classList.toggle('active');
+  }
+  if (activeFilters.length >= 1) {
+    for (let i = 0; i < activeFilters.length; i += 1) {
+      displayJSONData(activeFilters[i].id);
+    }
+  } else {
+    displayJSONData();
+  }
+});
 
 
 // SVÆÐI FYRIR FYRIRLESTUR.HTML
