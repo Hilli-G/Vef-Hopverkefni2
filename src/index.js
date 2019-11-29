@@ -1,4 +1,3 @@
-import List from './lib/list.js';
 import { el, empty } from './lib/helpers.js';
 
 
@@ -17,7 +16,6 @@ function fetchJSONFile(path, callback) {
 }
 
 function displayJSONData(type) {
-  const page = document.querySelector('body');
   const buttonContainer = document.getElementById('buttons');
   const listContainer = document.querySelector('ul');
   fetchJSONFile('lectures.json', (data) => {
@@ -53,24 +51,24 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('click', (e) => {
   const listContainer = document.querySelector('ul');
   const activeFilters = document.getElementsByClassName('active');
-  if (e.target && e.target.id === 'css') {
-    empty(listContainer);
-    e.target.classList.toggle('active');
-  }
-  if (e.target && e.target.id === 'html') {
-    empty(listContainer);
-    e.target.classList.toggle('active');
-  }
-  if (e.target && e.target.id === 'javascript') {
-    empty(listContainer);
-    e.target.classList.toggle('active');
-  }
-  if (activeFilters.length >= 1) {
-    for (let i = 0; i < activeFilters.length; i += 1) {
-      displayJSONData(activeFilters[i].id);
+  if (e.target && e.target.type === 'submit') {
+    if (e.target && e.target.id === 'css') {
+      e.target.classList.toggle('active');
     }
-  } else {
-    displayJSONData();
+    if (e.target && e.target.id === 'html') {
+      e.target.classList.toggle('active');
+    }
+    if (e.target && e.target.id === 'javascript') {
+      e.target.classList.toggle('active');
+    }
+    if (activeFilters.length >= 1) {
+      empty(listContainer);
+      for (let i = 0; i < activeFilters.length; i += 1) {
+        displayJSONData(activeFilters[i].id);
+      }
+    } else {
+      displayJSONData();
+    }
   }
 });
 
